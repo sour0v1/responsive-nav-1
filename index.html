@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Responsive Navigation</title>
 </head>
-<body>
-    <h1>Hello</h1>
+
+<body class="bg-[#38BDF8]">
+    <nav class="bg-white p-6 flex justify-between items-center h-20">
+        <span class="text-xl font-bold">
+            Nav
+        </span>
+        <button id="btn">
+            <img class="w-5 md:hidden" src="/bars-solid.svg" alt="">
+        </button>
+        <ul id="menu"
+            class="flex flex-col md:flex-row justify-end gap-6 absolute md:static left-0 bg-white w-full py-6 pl-6 top-20 transition -translate-y-[400px] md:transform-none md:z-0">
+            <li class="hover:text-[#38BDF8]"><a href="#home">Home</a></li>
+            <li class="hover:text-[#38BDF8]"><a href="#home">About</a></li>
+            <li class="hover:text-[#38BDF8]"><a href="#home">Services</a></li>
+            <li class="hover:text-[#38BDF8]"><a href="#home">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- js -->
+    <script>
+        const menuBtn = document.getElementById('btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            if (menu.classList.contains('-translate-y-[400px]')) {
+                menu.classList.remove('-translate-y-[400px]');
+                menu.classList.add('translate-y-0', '-z-10');
+
+            }
+            else {
+                menu.classList.add('-translate-y-[400px]');
+                menu.classList.remove('translate-y-0')
+
+            }
+        })
+    </script>
 </body>
+
 </html>
